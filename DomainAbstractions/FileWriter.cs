@@ -7,7 +7,7 @@ using Libraries;
 using ProgrammingParadigms;
 using System.IO;
 
-namespace GALADE.DomainAbstractions
+namespace DomainAbstractions
 {
     /// <summary>
     /// <para>Writes a string to a file.</para>
