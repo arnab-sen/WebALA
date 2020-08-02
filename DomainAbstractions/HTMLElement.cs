@@ -17,7 +17,7 @@ namespace DomainAbstractions
         private string _htmlCode;
 
         // Ports
-        private List<INestedText> childContent = new List<INestedText>();
+        private List<INestedText> children = new List<INestedText>();
 
         public HTMLElement()
         {
@@ -33,12 +33,12 @@ namespace DomainAbstractions
 
             sb.AppendLine(Content);
 
-            foreach (var nestedText in childContent)
+            foreach (var nestedText in children)
             {
                 sb.AppendLine(nestedText.GetText());
             }
 
-            sb.AppendLine($"/<{Type}>");
+            sb.AppendLine($"</{Type}>");
 
             _htmlCode = sb.ToString();
 

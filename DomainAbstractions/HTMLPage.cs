@@ -15,8 +15,8 @@ namespace DomainAbstractions
         private string htmlCode = "";
 
         // Ports
-        private INestedText htmlHeadInput;
-        private INestedText htmlBodyInput;
+        private List<INestedText> head = new List<INestedText>();
+        private List<INestedText> body = new List<INestedText>();
         private IDataFlow<string> htmlCodeOutput;
 
         public HTMLPage()
@@ -32,11 +32,17 @@ namespace DomainAbstractions
             sb.AppendLine("<html>");
 
             sb.AppendLine("<head>");
-            if (htmlHeadInput != null) sb.AppendLine(htmlHeadInput.GetText());
+            foreach (var nestedText in head)
+            {
+                sb.AppendLine(nestedText.GetText());
+            }
             sb.AppendLine("</head>");
 
             sb.AppendLine("<body>");
-            if (htmlBodyInput != null) sb.AppendLine(htmlBodyInput.GetText());
+            foreach (var nestedText in body)
+            {
+                sb.AppendLine(nestedText.GetText());
+            }
             sb.AppendLine("</body>");
 
             sb.AppendLine("</html>");
