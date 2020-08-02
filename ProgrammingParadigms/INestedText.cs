@@ -7,6 +7,6 @@ namespace ProgrammingParadigms
 {
     public interface INestedText
     {
-        string GetText();
+        string GetText(int depth);
     }
 }

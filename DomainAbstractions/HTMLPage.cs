@@ -34,14 +34,14 @@ namespace DomainAbstractions
             sb.AppendLine("<head>");
             foreach (var nestedText in head)
             {
-                sb.AppendLine(nestedText.GetText());
+                sb.AppendLine(nestedText.GetText(1));
             }
             sb.AppendLine("</head>");
 
             sb.AppendLine("<body>");
             foreach (var nestedText in body)
             {
-                sb.AppendLine(nestedText.GetText());
+                sb.AppendLine(nestedText.GetText(1));
             }
             sb.AppendLine("</body>");
 

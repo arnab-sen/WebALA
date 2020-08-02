@@ -25,20 +25,21 @@ namespace DomainAbstractions
         }
 
         // INestedText implementation
-        string INestedText.GetText()
+        string INestedText.GetText(int depth)
         {
             var sb = new StringBuilder();
+            string indent = new string(' ', 4 * depth);
 
-            sb.AppendLine($"<{Type}>");
+            sb.AppendLine($"{indent}<{Type}>");
 
-            sb.AppendLine(Content);
+            sb.AppendLine($"{indent}{Content}");
 
             foreach (var nestedText in children)
             {
-                sb.AppendLine(nestedText.GetText());
+                sb.AppendLine(nestedText.GetText(depth + 1));
             }
 
-            sb.AppendLine($"</{Type}>");
+            sb.AppendLine($"{indent}</{Type}>");
 
             _htmlCode = sb.ToString();
 
