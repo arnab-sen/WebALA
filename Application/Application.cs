@@ -3,17 +3,22 @@ using Libraries;
 using ProgrammingParadigms;
 using DomainAbstractions;
 
-namespace WebALA
+namespace Application
 {
-    class Application
+    public class Application
     {
-        private EventConnector appStart = new EventConnector() { InstanceName = "appStart" };
+        EventConnector appStart = new EventConnector() { InstanceName = "appStart" };
 
-        // BEGIN AUTO-GENERATED INSTANTIATIONS FOR Application.xmind
-        // END AUTO-GENERATED INSTANTIATIONS FOR Application.xmind
+        public Application()
+        {
+            // BEGIN AUTO-GENERATED INSTANTIATIONS FOR Application.xmind
+            HTMLPage id_c06ae43f967744c19aeb9ad40778bff8 = new HTMLPage() { InstanceName = "Default" };
+            // END AUTO-GENERATED INSTANTIATIONS FOR Application.xmind
 
-        // BEGIN AUTO-GENERATED WIRING FOR Application.xmind
-        // END AUTO-GENERATED WIRING FOR Application.xmind
+            // BEGIN AUTO-GENERATED WIRING FOR Application.xmind
+            appStart.WireTo(id_c06ae43f967744c19aeb9ad40778bff8, "fanoutList"); // (@EventConnector (appStart).fanoutList) -- [IEvent] --> (HTMLPage (id_c06ae43f967744c19aeb9ad40778bff8).getPage)
+            // END AUTO-GENERATED WIRING FOR Application.xmind
+        }
 
         static void Main(string[] args)
         {
